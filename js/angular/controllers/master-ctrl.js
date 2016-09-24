@@ -6,6 +6,8 @@ youRadioApp.controller('MasterCtrl', MasterCtrl);
   function MasterCtrl($scope) {
     $scope.titulo = 'Hi, hola'
 
+    $scope.esbienbenido = true
+
 
     $scope.phones = [
      {'name': 'Nexus S',
