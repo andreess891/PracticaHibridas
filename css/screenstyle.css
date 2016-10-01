@@ -25,3 +25,11 @@ body {
  background-color: green;
  }
 }
+
+@media (max-width: 100px) {
+ body {
+ 	background-color: red;
+ 	margin-left: 52%; /*500÷960=52%*/
+ 	font-size: 3em; /* 48 ÷ 16 = 3*/
+ }
+}

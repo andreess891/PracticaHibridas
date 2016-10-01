@@ -7,7 +7,7 @@ youRadioApp.controller('HomeCtrl', ['$scope', '$state', 'homeService', HomeCtrl]
 
   	$scope.submit = function() {
   		homeService.logout();
-  		$state.go('home');
+  		$state.go('login');
   	}
   }
 
