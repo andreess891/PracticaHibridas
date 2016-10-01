@@ -1,0 +1,12 @@
+<div ng-controller="RadioListCtrl">
+	<div class="row">
+		<table class="table">
+			<tbody>
+				<tr ng-repeat="radio in radioLists">
+					<th ng-click="goToPrograms(radio)" scope="row">{{radio.id}}</th>
+					<th scope="row">{{radio.name}}</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

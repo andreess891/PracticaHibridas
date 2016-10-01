@@ -1,0 +1,12 @@
+<div ng-controller="RadioProgramsCtrl">
+	<div class="row">
+		<table class="table">
+			<tbody>
+				<tr ng-repeat="programs in radioPrograms">
+					<td scope="row">{{programs.name}}</td>
+					<td scope="row">{{programs.schedule}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

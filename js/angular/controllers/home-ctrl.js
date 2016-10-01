@@ -1,8 +1,13 @@
-youRadioApp.controller('HomeCtrl', HomeCtrl);
+youRadioApp.controller('HomeCtrl', ['$scope', '$state', 'homeService', HomeCtrl]);
 
+  HomeCtrl.$inject = ['$scope', '$state','homeService'];
 
-  HomeCtrl.$inject = ['$scope'];
-
-  function HomeCtrl($scope) {
+  function HomeCtrl($scope, $state, homeService) {
   	$scope.tituloInicial = 'Bienvenido'
+
+  	$scope.submit = function() {
+  		homeService.logout();
+  		$state.go('home');
+  	}
   }
+
