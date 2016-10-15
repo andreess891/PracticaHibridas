@@ -1,12 +1,31 @@
-youRadioApp.controller('LoginCtrl', ['$scope', '$state', 'loginService', LoginCtrl]);
+youRadioApp.controller('LoginCtrl', LoginCtrl);
 
-  function LoginCtrl($scope, $state, loginService) {
-  	$scope.submit = function() {
-  		var response = loginService.login($scope.username, $scope.password);
-  		if (response) {
-  			$state.go('home');
-  		} else {
-  			alert('Login fallido');
-  		}
-  	}
-  }
+
+LoginCtrl.$inject = ['$scope', '$state', 'loginService'];
+
+function LoginCtrl($scope, $state, loginService) {
+
+  $scope.submit = function() {
+    if ($scope.userForm.$invalid) {
+      return;
+    }
+    if ($scope.userForm.$valid) {
+     //alert('es valida');
+      loginService.login($scope.username, $scope.password).then(function (authData) {
+          if(authData){
+            if(angular.isDefined(authData.code)){
+              alert(authData.message);
+            }else{
+              alert("Perfecto");
+              $state.go('radioList');   
+            }
+            
+          }
+        }).catch(function (error) {
+          if(error){
+            alert("No fue posible el logueo");
+          }
+        });   
+    }
+  };
+}

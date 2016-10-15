@@ -1,7 +1,7 @@
 <div ng-controller="RegisterCtrl">
 	<div class="row">
 		<div class="col-md-12 text-center">
-			<form name="userForm" ng-model="userForm" ng-submit="submit()">
+			<form name="userForm" ng-model="userForm" > <!--ng-submit="submit()">-->
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" class="form-control" ng-model="username" id="username" placeholder="Username" required>
@@ -14,7 +14,9 @@
 					<label for="passwordC">Password Confirm</label>
 					<input type="password" class="form-control" ng-model="confirmPassword" id="passwordC" placeholder="Password Confirm" required>
 				</div>
-				<button type="submit" class="btn btn-default">Register</button>
+				<!--<button type="submit" class="btn btn-default">Register</button>-->
+				<button type="button" ng-click="newUserSubmit()" class="btn btn-default">Register</button>
+				
 			</form>
 		</div>
 	</div>

@@ -1,8 +1,8 @@
 youRadioApp.factory('radioProgramsService', radioProgramsService); 
 
-radioProgramsService.$inject = [];
+radioProgramsService.$inject = ['crudfactory'];
 
-function radioProgramsService() {
+/*function radioProgramsService() {
 
     var radio_list = [{"idRadio":"1","radioPrograms":[{
     				    								"name":"el gallo",
@@ -54,5 +54,30 @@ function radioProgramsService() {
             }
         }
         return;
+    };
+}*/
+
+function radioProgramsService(crudfactory) {
+
+  var programs=[{"id":1, "name":"RadioUno"}, {"id":2, "name":"RCNRadio"}];
+
+    var service = {
+        getProgramsByChannelId:getProgramsByChannelId
+    };
+    return service;
+
+    function getProgramsByChannelId(channelId) {
+      return crudfactory.synchronizedModel("programs").$load().then(completeSuccess).catch(completeFail);
+
+      function completeSuccess(data){
+        var filter = data.$filterEqual("idChannel", channelId);
+        return filter;
+      }
+
+      function completeFail(error){
+      return error;
+      }
+      //return programs;
+
     };
 }
