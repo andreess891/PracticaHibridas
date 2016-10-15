@@ -1,9 +1,9 @@
 youRadioApp.controller('LoginCtrl', LoginCtrl);
 
 
-LoginCtrl.$inject = ['$scope', '$state', 'loginService'];
+LoginCtrl.$inject = ['$scope', '$state', '$cookies', 'loginService'];
 
-function LoginCtrl($scope, $state, loginService) {
+function LoginCtrl($scope, $state, $cookies, loginService) {
 
   $scope.submit = function() {
     if ($scope.userForm.$invalid) {
@@ -17,6 +17,7 @@ function LoginCtrl($scope, $state, loginService) {
               alert(authData.message);
             }else{
               alert("Perfecto");
+              $cookies.put('username', $scope.username);
               $state.go('radioList');   
             }
             

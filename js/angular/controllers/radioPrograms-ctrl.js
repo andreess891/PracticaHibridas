@@ -1,7 +1,7 @@
-youRadioApp.controller('RadioProgramsCtrl', ['$scope', '$stateParams', 'radioProgramsService', RadioProgramsCtrl]);
+youRadioApp.controller('RadioProgramsCtrl', ['$scope', '$stateParams', '$state', 'radioProgramsService', RadioProgramsCtrl]);
 
 
-function RadioProgramsCtrl($scope, $stateParams, radioProgramsService) {
+function RadioProgramsCtrl($scope, $stateParams, $state, radioProgramsService) {
 	
 
   init();
@@ -15,4 +15,9 @@ function RadioProgramsCtrl($scope, $stateParams, radioProgramsService) {
 	});
     console.log($scope.radioPrograms);
   }
+
+  $scope.goToMessages = function(program) {
+    $state.go('messages', {"programId":program.$id});
+  }
+
 }

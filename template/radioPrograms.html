@@ -5,6 +5,9 @@
 				<tr ng-repeat="programs in radioPrograms">
 					<td scope="row">{{programs.id}}</td>
 					<td scope="row">{{programs.name}}</td>
+					<th scope="row">
+						<button type="button" ng-click="goToMessages(programs)" class="btn btn-default">ir</button>
+					</th>
 				</tr>
 			</tbody>
 		</table>

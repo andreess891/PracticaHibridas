@@ -30,5 +30,9 @@ youRadioApp.config(function($stateProvider, $urlRouterProvider) {
     .state('radioPrograms', {
       url: "/radioPrograms/:radioId",
       templateUrl: "template/radioPrograms.html"
+    })
+    .state('messages', {
+      url: "/messages/:programId",
+      templateUrl: "template/messages.html"
     });
 });

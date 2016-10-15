@@ -1,0 +1,22 @@
+<div ng-controller="MessagesCtrl">
+	<div class="row" >
+		<div class="col-md-12 text-center">
+			<form name="userForm" ng-model="userForm" ng-submit="submit(message)">
+				<div class="form-group">
+					<input type="text" class="form-control" ng-model="message" id="name" placeholder="mensaje">
+				</div>
+				<button type="submit" class="btn btn-default">add message</button>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table">
+			<tbody>
+				<tr ng-repeat="message in messages">
+					<td scope="row">{{message.username}}</td>
+					<td scope="row">{{message.message}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
